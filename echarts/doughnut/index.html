@@ -1,0 +1,196 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body style="background-color: black">
+<div id="piechart" style="width: 1000px;height: 800px;margin: 0 auto"></div>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/echarts.min.js"></script>
+<script type="text/javascript" src="../js/bmap.min.js"></script>
+<script>
+    var dataStyle = {
+        normal: {
+            label: {
+                show: false
+            },
+            labelLine: {
+                show: false
+            },
+            shadowBlur: 40,
+            shadowColor: 'rgba(40, 40, 40, 0.5)'
+        }
+    };
+    var placeHolderStyle = {
+        normal: {
+            color: 'rgba(44,59,70,1)', // 未完成的圆环的颜色
+            label: {
+                show: false
+            },
+            labelLine: {
+                show: false
+            }
+        },
+        emphasis: {
+            color: 'rgba(44,59,70,1)' // 未完成的圆环的颜色
+        }
+    };
+    var rednum = 20;
+    var yellownum = 60;
+    var bluenum = 15;
+    var greennum = 5;
+    var option = {
+        title: {
+            show: false
+        },
+        tooltip: {
+            show: false,
+        },
+        toolbox: {
+            show: false,
+        },
+        // color : ['#3dd4de','#b697cd','#a6f08f'],
+        // backgroundColor: 'rgba(0,0,0,0.8)',
+        series: [{
+            name: 'Pie1',
+            type: 'pie',
+            clockWise: true,
+            radius: [60, 65],
+            itemStyle: dataStyle,
+            hoverAnimation: false,
+            center: ['20%', '50%'],
+            data: [{
+                value: rednum,
+                label: {
+                    normal: {
+                        formatter: '{d}%',
+                        position: 'center',
+                        show: true,
+                        textStyle: {
+                            fontSize: '35',
+                            fontWeight: 'normal',
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#d73232',
+                        shadowColor: '#d73232',
+                        shadowBlur: 10
+                    }
+                }
+            }, {
+                value: 100 - rednum,
+                name: 'invisible',
+                itemStyle: placeHolderStyle,
+            }]
+        }, {
+            name: 'Pie2',
+            type: 'pie',
+            clockWise: true,
+            radius: [60, 65],
+            itemStyle: dataStyle,
+            hoverAnimation: false,
+            center: ['40%', '50%'],
+            data: [{
+                value: yellownum,
+                label: {
+                    normal: {
+                        formatter: '{d}%',
+                        position: 'center',
+                        show: true,
+                        textStyle: {
+                            fontSize: '35',
+                            fontWeight: 'normal',
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#f8a20f',
+                        shadowColor: '#f8a20f',
+                        shadowBlur: 10
+                    }
+                }
+            }, {
+                value: 100 - yellownum,
+                name: 'invisible',
+                itemStyle: placeHolderStyle,
+            }]
+        }, {
+            name: 'Pie3',
+            type: 'pie',
+            clockWise: true,
+            radius: [60, 65],
+            itemStyle: dataStyle,
+            hoverAnimation: false,
+            center: ['60%', '50%'],
+            data: [{
+                value: bluenum,
+                label: {
+                    normal: {
+                        formatter: '{d}%',
+                        position: 'center',
+                        show: true,
+                        textStyle: {
+                            fontSize: '35',
+                            fontWeight: 'normal',
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#2cca51',
+                        shadowColor: '#2cca51',
+                        shadowBlur: 10
+                    }
+                }
+            }, {
+                value: 100 - bluenum,
+                name: 'invisible',
+                itemStyle: placeHolderStyle,
+            }]
+        }, {
+            name: 'Pie4',
+            type: 'pie',
+            clockWise: true,
+            radius: [60, 65],
+            itemStyle: dataStyle,
+            hoverAnimation: false,
+            center: ['80%', '50%'],
+            data: [{
+                value: greennum,
+                label: {
+                    normal: {
+                        formatter: '{d}%',
+                        position: 'center',
+                        show: true,
+                        textStyle: {
+                            fontSize: '35',
+                            fontWeight: 'normal',
+                            color: '#fff'
+                        }
+                    }
+                },
+                itemStyle: {
+                    normal: {
+                        color: '#00adfe',
+                        shadowColor: '#00adfe',
+                        shadowBlur: 10
+                    }
+                }
+            }, {
+                value: 100 - greennum,
+                name: 'invisible',
+                itemStyle: placeHolderStyle,
+            }]
+        },]
+    };
+    var piechart = echarts.init(document.getElementById('piechart'));
+    piechart.setOption(option);
+    piechart.hideLoading();
+</script>
+</body>
+</html>
